@@ -1,0 +1,91 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: grid;
+    grid-template: 1fr 2fr 2fr / 1fr 5fr;
+    height: 100vh;
+}
+
+main {
+    grid-area: 2 / 2 / 4 / 3;
+    background-color: blue;
+}
+
+header {
+    grid-area: 1 / 2 / 2 / 3;
+    background-color: green;
+    display: grid;
+    grid-template: 50% 50% / 100%;
+}
+
+aside {
+    grid-area: 1 / 1 / 4 / 2;
+    background-color: red;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 1rem 0 0 0.7rem;
+}
+
+li {
+    list-style-type: none;
+}
+
+li > img {
+    vertical-align:-30%;
+    padding-right: 0.6rem;
+}
+
+ul {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.top-header {
+    border: 1px solid white; /* debug */
+    grid-area: 1 / 1 / 2 / 2;
+    justify-self: stretch;
+    display: flex;
+    align-items: center;
+}
+
+.bottom-header {
+    grid-area: 2 / 1 / 3 / 2;
+    border: 1px solid white; /* debug */
+    justify-self: stretch;
+    display: flex;
+    align-items: center;
+}
+
+.search > img {
+
+}
+
+input {
+    border-radius: 20px;
+    border: 0px;
+    width: 40vw;
+    height: 24px;
+}
+
+.search {
+    display: flex;
+    border: 1px solid white; /* debug */
+    margin-left: 1rem;
+    justify-content: stretch;
+    gap: 0.8rem;
+    margin-left: 2.2rem;
+}
+
+.account {
+    border: 1px solid white; /* debug */
+    display: flex;
+    gap: 1rem;
+    margin-left: auto;
+    margin-right: 2rem;
+}
