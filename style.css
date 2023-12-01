@@ -6,12 +6,34 @@
     box-sizing: border-box;
 }
 
+    /* CHECKLIST 
+    
+    - Add links
+    - Animation on buttons, sidebar links, share and favourite
+    - Adjust color scheme
+    - Add trending users
+    - Add announcements with separation lines
+    
+    */
+
 body {
     display: grid;
-    grid-template: 1fr 2fr 2fr / 1fr 5fr;
+    grid-template: 120px 2.5fr 2.5fr / 230px 5fr;
     font-family: 'Poppins', sans-serif;
-    font-size: 16px;
-    height: 100vh;
+    font-size: 14px;
+    min-height: 100vh;
+    background: #EFEFEF;
+}
+
+a {
+    text-decoration: none;
+    color: #101010;
+}
+
+.logo > img {
+    width: 80px;
+    margin-left: 2.6rem;
+    margin-bottom: 1.5rem;
 }
 
 h2 {
@@ -24,32 +46,42 @@ h3 {
 
 main {
     grid-area: 2 / 2 / 4 / 3;
-    background-color: blue;
+    background-color: #004C54;
+    padding: 1rem;
 }
 
 header {
     grid-area: 1 / 2 / 2 / 3;
-    background-color: green;
+    background-color: #EFEFEF;
     display: grid;
     grid-template: 50% 50% / 100%;
 }
 
 aside {
     grid-area: 1 / 1 / 4 / 2;
-    background-color: red;
+    background-color: #EFEFEF;
     display: flex;
     flex-direction: column;
     gap: 2rem;
-    padding: 1rem 0 0 0.7rem;
+    padding: 2rem 0 0 1.4rem;
+    -webkit-box-shadow: 4px 0px 11px -1px rgba(0,0,0,0.36); 
+    box-shadow: 4px 0px 11px -1px rgba(0,0,0,0.36);
+    margin-right: 1rem;
 }
 
 li {
     list-style-type: none;
+    transition: transform 0.3s ease-in-out;
 }
 
 li > img {
     vertical-align:-30%;
     padding-right: 0.6rem;
+}
+
+li:hover {
+    color: #5B6E80;
+    transform: translateY(-5px) scale(1.1);
 }
 
 ul {
@@ -77,6 +109,18 @@ input {
     border: 0px;
     width: 40vw;
     height: 24px;
+    background-color: lightgray;
+    padding: 0.4rem;
+    font-family: 'Poppins', sans-serif;
+}
+
+input:hover {
+    transform: scale(1.3) translatex(60px);
+}
+
+input:focus {
+    transform: scale(1.3) translatex(60px);
+    outline: none;
 }
 
 .search {
@@ -96,8 +140,36 @@ input {
     align-items: center;
 }
 
+#notification {
+    width: 28px;
+}
+
+#notification:hover {
+    animation-name: ring;
+    animation-timing-function: ease-in-out;
+    animation-duration: .5s;
+    animation-iteration-count: 2;
+    animation-delay: 0s;
+    transform: scale(1.4);
+  }
+  
+@keyframes ring {
+    0%,
+    100% {
+      transform: rotate(0deg) scale(1.3);;
+    }
+    20%,
+    60% {
+      transform: rotate(6deg) scale(1.3);
+    }
+    40%,
+    80% {
+      transform: rotate(-6deg) scale(1.3);
+    }
+}
+
 #user {
-    width: 30px;
+    width:40px;
 }
 
 .welcome {
@@ -108,7 +180,7 @@ input {
 
 .welcome > img {
     grid-area: 1 / 1 / 3 / 2;
-    width: 50px;
+    width: 70px;
     margin-right: 0.8rem;
 }
 
@@ -122,7 +194,7 @@ input {
 
 .buttons {
     display: flex;
-    gap: 2.4rem;
+    gap: 1.4rem;
     margin-left: auto;
     margin-right: 1.4rem;
 }
@@ -132,12 +204,23 @@ input {
     height: 30px;
     border-radius: 20px;
     border: 0px;
+    -webkit-box-shadow: 3px 5px 7px -1px rgba(0,0,0,0.37); 
+    box-shadow: 3px 5px 7px -1px rgba(0,0,0,0.37);
+}
+
+.buttons > button:active {
+    transform: translateY(2px);
+    -webkit-box-shadow: none;
+    box-shadow: none;
 }
 
 main {
     display: grid;
-    grid-template: 1fr 5fr 1fr 5fr / 3fr 1fr;
+    grid-template: 50px 5fr 50px 5fr / 3fr 1fr;
     gap: 0.2rem;
+    border-radius: 20px;
+    margin: 1em;
+    color: #EFEFEF;
 }
 
 h3.projects {
@@ -153,6 +236,7 @@ div.projects {
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 1rem;
     margin-bottom: 1rem;
+    color: #101010;
 }
 
 h3.announcements {
@@ -164,11 +248,15 @@ h3.announcements {
 div.announcements {
     grid-area: 2 / 2 / 3 / 3;
     border-radius: 10px;
-    background: white;
+    color: #101010;
+    background: #EFEFEF;
     padding: 1rem;
     margin: 0 1rem;
     -webkit-box-shadow: 3px 5px 7px -1px rgba(0,0,0,0.37); 
     box-shadow: 3px 5px 7px -1px rgba(0,0,0,0.37);
+    vertical-align: middle;
+    display: flex;
+    flex-direction: column;
 }
 
 h3.trending {
@@ -180,18 +268,81 @@ h3.trending {
 div.trending {
     grid-area: 4 / 2 / 5 / 3;
     border-radius: 10px;
-    background: white;
+    color: #101010;
+    background: #EFEFEF;
     padding: 1rem;
     margin: 0 1rem;
     height: 90%;
     -webkit-box-shadow: 3px 5px 7px -1px rgba(0,0,0,0.37); 
     box-shadow: 3px 5px 7px -1px rgba(0,0,0,0.37);
+    display: grid;
+    grid-template: 1fr 1fr 1fr 1fr / 1fr 2fr;
+    align-items: center;
+    gap: 0.3rem;
 }
 
+.trending-user-pic-1 {
+    grid-area: 1 / 1;
+}
+
+.trending-user-pic-2 {
+    grid-area: 2 / 1;
+}
+
+.trending-user-pic-3 {
+    grid-area: 3 / 1;
+}
+
+.trending-user-pic-4 {
+    grid-area: 4 / 1;
+}
+
+.trending-user-pic-1 > img, 
+.trending-user-pic-2 > img,
+.trending-user-pic-3 > img,
+.trending-user-pic-4 > img {
+    width: 60px;
+}
+
+div.controls > a {
+    display: inline-block;
+    transition: transform 0.3s ease-in-out;
+}
+
+div.controls > a:hover {
+    transform: translateY(-5px) scale(1.1) translateZ(0);
+}
+
+.bottom {
+    color: lightslategray;
+}
 .card {
     border-radius: 10px;
-    background: white;
+    background: #EFEFEF;
     padding: 1rem;
     -webkit-box-shadow: 3px 5px 7px -1px rgba(0,0,0,0.37); 
     box-shadow: 3px 5px 7px -1px rgba(0,0,0,0.37);
+    position: relative;
+}
+
+.controls {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin: 0 0.8rem 0.4rem 0;
+}
+
+.content > p {
+    font-size: 0.8rem;
+}
+
+div.trending,
+div.announcements {
+    font-size: 0.8rem;
+    padding: 1.4rem;
+}
+
+div.trending > hr,
+div.announcements > hr {
+    margin: 1rem;
 }
